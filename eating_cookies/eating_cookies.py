@@ -8,9 +8,9 @@ import sys
 
 
 def eating_cookies(n, cache=None):
-    res = [1, 1, 2]
+    res = [1, 1, 2] + [0] * (n-2)
     for i in range(3, n+1):
-        res.append(sum(res[-3:]))
+        res[i] = (sum(res[i-3:i]))
     return res[n]
 
 
