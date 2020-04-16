@@ -4,20 +4,6 @@ import math
 
 
 def recipe_batches(recipe, ingredients):
-    cur_max = 10 ** 100
-    for key, value in recipe.items():
-        if key not in ingredients or cur_max == 0:
-            return 0
-        cur_max = min(cur_max, ingredients[key] // value)
-    return cur_max
-
-# The above implementation isn't *guaranteed* to work. It will fail
-# if the maximum batches possible exceeds 10 ** 100. The implementation
-# below is guaranteed to work, but it allocates an additional list
-# in memory. Trade-offs, ya know?
-
-
-def recipe_batches_two(recipe, ingredients):
     maxes = []
     batches = 1
     for key, value in recipe.items():
